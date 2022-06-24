@@ -1,0 +1,16 @@
+{% extends 'base.html' %}    
+{%block content%}
+    {% if not request.user.is_authenticated %}     
+        <div class="container">
+            <form action="" method="post"> {%csrf_token%}
+                {{register.as_p}}
+                <input type="submit">
+            </form>
+            
+        </div>
+    {%else%}
+        <div class="container">
+            <h2 style="text-align: center;">Hi {{request.user}}, You Already Have a Registered Account with Us</h2>
+        </div>
+    {% endif %}
+{% endblock %}
